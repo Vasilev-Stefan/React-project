@@ -3,7 +3,7 @@ export function Header() {
         <header>
             {/* <!-- Navigation --> */}
             <nav>
-                <a class="home" href="#"> <img src="./images/logo.png" alt="logo" /> </a>
+                <a className="home" href="#"> <img src="./images/logo.png" alt="logo" /> </a>
                 <a href="#">Catalog</a>
                 {/* <!-- Logged-in users --> */}
                 <div id="user">
