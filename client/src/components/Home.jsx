@@ -1,4 +1,8 @@
 import logoImage from '../assets/logo.png'
+import witcherImage from '../assets/witcher.png'
+import elderImage from '../assets/elden ring.png'
+import minecraftImage from '../assets/minecraft.png'
+
 
 export function Home() {
     return (
@@ -17,7 +21,7 @@ export function Home() {
                     {/* <!-- Display div: with information about every game (if any) --> */}
                     <div className="home-container">
                         <div className="game">
-                            <img src="./images/witcher.png" alt="Elden Ring" />
+                            <img src={witcherImage} alt="Elden Ring" />
                                 <div className="details-overlay">
                                     <p className="name">The Witcher 3</p>
                                     <p className="genre">Open World</p>
@@ -25,7 +29,7 @@ export function Home() {
                                 </div>
                         </div>
                         <div className="game">
-                            <img src="./images/elden ring.png" alt="Elden Ring" />
+                            <img src={elderImage} alt="Elden Ring" />
                                 <div className="details-overlay">
                                     <p className="name">Elden Ring</p>
                                     <p className="genre">Action RPG</p>
@@ -33,7 +37,7 @@ export function Home() {
                                 </div>
                         </div>
                         <div className="game">
-                            <img src="./images/minecraft.png" alt="Minecraft" />
+                            <img src={minecraftImage} alt="Minecraft" />
                                 <div className="details-overlay">
                                     <p className="name">Minecraft</p>
                                     <p className="genre">Sandbox</p>

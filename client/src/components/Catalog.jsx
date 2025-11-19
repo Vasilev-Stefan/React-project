@@ -1,3 +1,8 @@
+import witcherImage from '../assets/witcher.png'
+import elderImage from '../assets/elden ring.png'
+import minecraftImage from '../assets/minecraft.png'
+import cyberpunkImage from '../assets/cyberpunk.png'
+
 export function Catalog() {
     return (
         <section id="catalog-page">
@@ -6,7 +11,7 @@ export function Catalog() {
             <div className="catalog-container">
 
                 <div className="game">
-                    <img src="./images/witcher.png" alt="The Witcher 3" />
+                    <img src={witcherImage} alt="The Witcher 3" />
                     <div className="details-overlay">
                         <p className="name">The Witcher 3</p>
                         <p className="genre">Open World</p>
@@ -15,7 +20,7 @@ export function Catalog() {
                 </div>
 
                 <div className="game">
-                    <img src="./images/elden ring.png" alt="Elden Ring" />
+                    <img src={elderImage} alt="Elden Ring" />
                     <div className="details-overlay">
                         <p className="name">Elden Ring</p>
                         <p className="genre">Action RPG</p>
@@ -24,7 +29,7 @@ export function Catalog() {
                 </div>
 
                 <div className="game">
-                    <img src="./images/minecraft.png" alt="Minecraft" />
+                    <img src={minecraftImage} alt="Minecraft" />
                     <div className="details-overlay">
                         <p className="name">Minecraft</p>
                         <p className="genre">Sandbox</p>
@@ -33,7 +38,7 @@ export function Catalog() {
                 </div>
 
                 <div className="game">
-                    <img src="./images/cyberpunk.png" alt="Cyberpunk 2077" />
+                    <img src={cyberpunkImage} alt="Cyberpunk 2077" />
                     <div className="details-overlay">
                         <p className="name">Cyberpunk 2077</p>
                         <p className="genre">Action RPG</p>
