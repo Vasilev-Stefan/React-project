@@ -1,4 +1,3 @@
-import './App.css'
 import { Catalog } from './components/Catalog'
 import { Create } from './components/Create'
 import { Details } from './components/Details'

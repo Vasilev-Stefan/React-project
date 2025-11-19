@@ -1,9 +1,11 @@
+import logoImage from '../assets/logo.png'
+
 export function Header() {
     return (
         <header>
             {/* <!-- Navigation --> */}
             <nav>
-                <a className="home" href="#"> <img src="./images/logo.png" alt="logo" /> </a>
+                <a className="home" href="#"> <img src={logoImage} alt="logo" /> </a>
                 <a href="#">Catalog</a>
                 {/* <!-- Logged-in users --> */}
                 <div id="user">
