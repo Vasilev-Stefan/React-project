@@ -22,6 +22,7 @@ function App() {
 
                 <Route path='/games'>
                     <Route path='add' element={<Create />} />
+                    <Route path='details/:id' element={<Details />} />
                 </Route>
 
                 <Route path='/users'>
@@ -32,7 +33,6 @@ function App() {
         </main>
 
 
-        <Details />
         <Edit />
         <Footer />
         </body>

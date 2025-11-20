@@ -85,7 +85,7 @@
 
 #game-details .summary-section {
     width: 60%;
-    padding-left: 2vw;
+    padding-left: 1vw;
     box-sizing: border-box;
 }
 
@@ -97,6 +97,7 @@
 }
 
 #game-details .text-summary {
+    width: 60%;
     font-size: 1.2vw;
     line-height: 1.6;
 }
