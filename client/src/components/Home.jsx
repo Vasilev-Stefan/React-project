@@ -1,7 +1,3 @@
-import logoImage from '../assets/logo.png'
-import witcherImage from '../assets/witcher.png'
-import elderImage from '../assets/elden ring.png'
-import minecraftImage from '../assets/minecraft.png'
 
 
 export function Home() {
@@ -12,7 +8,7 @@ export function Home() {
             <div className="welcome-message">
                 <h2>ALL new games are</h2>
                 <h3>Only in </h3>
-                <img id="logo-left" src={logoImage} alt="logo" />
+                <img id="logo-left" src='/images/logo.png' alt="logo" />
             </div>
 
             <div id="home-page">
@@ -21,7 +17,7 @@ export function Home() {
                     {/* <!-- Display div: with information about every game (if any) --> */}
                     <div className="home-container">
                         <div className="game">
-                            <img src={witcherImage} alt="Elden Ring" />
+                            <img src='/images/witcher.png' alt="Elden Ring" />
                                 <div className="details-overlay">
                                     <p className="name">The Witcher 3</p>
                                     <p className="genre">Open World</p>
@@ -29,7 +25,7 @@ export function Home() {
                                 </div>
                         </div>
                         <div className="game">
-                            <img src={elderImage} alt="Elden Ring" />
+                            <img src='/images/elden ring.png' alt="Elden Ring" />
                                 <div className="details-overlay">
                                     <p className="name">Elden Ring</p>
                                     <p className="genre">Action RPG</p>
@@ -37,7 +33,7 @@ export function Home() {
                                 </div>
                         </div>
                         <div className="game">
-                            <img src={minecraftImage} alt="Minecraft" />
+                            <img src='/images/minecraft.png' alt="Minecraft" />
                                 <div className="details-overlay">
                                     <p className="name">Minecraft</p>
                                     <p className="genre">Sandbox</p>

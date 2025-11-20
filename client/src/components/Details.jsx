@@ -1,4 +1,3 @@
-import elderImage from '../assets/elden ring.png'
 
 
 export function Details() {
@@ -8,7 +7,7 @@ export function Details() {
             <div className="info-section">
 
                 <div className="header-and-image">
-                    <img className="game-img" src={elderImage} alt="Elden Ring Cover Art" />
+                    <img className="game-img" src='/images/elden ring.png' alt="Elden Ring Cover Art" />
 
                     <div className="meta-info">
                         <h1 className="game-name">Elden Ring</h1>
