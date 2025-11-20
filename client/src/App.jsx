@@ -12,7 +12,7 @@ import { Routes, Route } from 'react-router'
 function App() {
 
     return (
-        <>
+        <body>
         <Header />
 
         <main>
@@ -35,7 +35,7 @@ function App() {
         <Details />
         <Edit />
         <Footer />
-        </>
+        </body>
     )
 }
 

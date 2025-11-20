@@ -2,8 +2,18 @@ import witcherImage from '../assets/witcher.png'
 import elderImage from '../assets/elden ring.png'
 import minecraftImage from '../assets/minecraft.png'
 import cyberpunkImage from '../assets/cyberpunk.png'
+import { useEffect, useState } from 'react'
 
 export function Catalog() {
+    const [games, setGames] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:3030/jsonstore/games?sortBy=_createdOn%20desc')
+        .then(response => response.json())
+        .then(result => setGames(Object.values(result)))
+        .catch(error => alert(error))
+    }, [])
+
     return (
         <section id="catalog-page">
             <h1>Catalog</h1>
