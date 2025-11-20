@@ -8,32 +8,32 @@ export function Edit() {
                     <h1>Edit Game</h1>
 
                     <div className="form-group-half">
-                        <label for="gameName">Game Name:</label>
+                        <label htmlFor="gameName">Game Name:</label>
                         <input type="text" id="gameName" name="gameName" placeholder="Enter game title..." />
                     </div>
 
                     <div className="form-group-half">
-                        <label for="genre">Genre:</label>
+                        <label htmlFor="genre">Genre:</label>
                         <input type="text" id="genre" name="genre" placeholder="Enter game genre..." />
                     </div>
 
                     <div className="form-group-half">
-                        <label for="activePlayers">Active Players:</label>
+                        <label htmlFor="activePlayers">Active Players:</label>
                         <input type="number" id="activePlayers" name="activePlayers" min="0" placeholder="0" />
                     </div>
 
                     <div className="form-group-half">
-                        <label for="releaseDate">Release Date:</label>
+                        <label htmlFor="releaseDate">Release Date:</label>
                         <input type="date" id="releaseDate" name="releaseDate" />
                     </div>
 
                     <div className="form-group-full">
-                        <label for="imageUrl">Image URL:</label>
+                        <label htmlFor="imageUrl">Image URL:</label>
                         <input type="text" id="imageUrl" name="imageUrl" placeholder="Enter image URL..." />
                     </div>
 
                     <div className="form-group-full">
-                        <label for="summary">Summary:</label>
+                        <label htmlFor="summary">Summary:</label>
                         <textarea name="summary" id="summary" rows="5"
                             placeholder="Write a brief summary..."></textarea>
                     </div>

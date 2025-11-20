@@ -1,21 +1,22 @@
 import logoImage from '../assets/logo.png'
+import { Link } from 'react-router'
 
 export function Header() {
     return (
         <header>
             {/* <!-- Navigation --> */}
             <nav>
-                <a className="home" href="#"> <img src={logoImage} alt="logo" /> </a>
-                <a href="#">Catalog</a>
+                <Link className="home" to="/"> <img src={logoImage} alt="logo" /> </Link>
+                <Link to="/catalog">Catalog</Link>
                 {/* <!-- Logged-in users --> */}
                 <div id="user">
-                    <a href="#">Add Game</a>
-                    <a href="#">Logout</a>
+                    <Link to="/games/add">Add Game</Link>
+                    <Link to="/users/logout">Logout</Link>
                 </div>
                 {/* <!-- Guest users --> */}
                 <div id="guest">
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
+                    <Link to="/users/login">Login</Link>
+                    <Link to="/users/register">Register</Link>
                 </div>
             </nav>
         </header>

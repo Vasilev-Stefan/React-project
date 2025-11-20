@@ -7,13 +7,13 @@ export function Register() {
                     <div className="brand-logo"></div>
                     <h1>Register</h1>
 
-                    <label for="email">Email:</label>
+                    <label htmlFor="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Your Email" />
 
-                    <label for="pass">Password:</label>
+                    <label htmlFor="pass">Password:</label>
                     <input type="password" name="password" id="register-password" placeholder="Password" />
 
-                    <label for="con-pass">Confirm Password:</label>
+                    <label htmlFor="con-pass">Confirm Password:</label>
                     <input type="password" name="confirm-password" id="confirm-password" placeholder="Repeat Password" />
 
                     <input className="btn submit" type="submit" value="Register" />

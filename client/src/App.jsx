@@ -7,19 +7,31 @@ import { Header } from './components/Header'
 import { Home } from './components/Home'
 import { Login } from './components/Login'
 import { Register } from './components/Register'
+import { Routes, Route } from 'react-router'
 
 function App() {
 
     return (
         <>
         <Header />
-        <Home />
-        <Catalog />
 
-        <Login />
-        <Register />
+        <main>
+            <Routes>
+                <Route path='/' element={<Home />}/>
+                <Route path='/catalog' element={<Catalog />}/>
 
-        <Create />
+                <Route path='/games'>
+                    <Route path='add' element={<Create />} />
+                </Route>
+
+                <Route path='/users'>
+                    <Route path='login' element={<Login />}/>
+                    <Route path='register' element={<Register />}/>
+                </Route>
+            </Routes>
+        </main>
+
+
         <Details />
         <Edit />
         <Footer />
