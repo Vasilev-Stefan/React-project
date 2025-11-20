@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react"
+import { GameCard } from "./GameCard"
 
 
 export function Home() {
+    const [lastGames, setLastGames] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:3030/jsonstore/games?sortBy=_createdOn%20desc')
+        .then(response => response.json())
+        .then(result => setLastGames(Object.entries(result).slice(0, 3)))
+        .catch(error => alert(error.message))
+    },[])
     return (
             // <!--Home Page-->
         <section id="welcome-world">
@@ -14,35 +24,9 @@ export function Home() {
             <div id="home-page">
                 <h1>Latest Games</h1>
                 <div id="latest-wrap">
-                    {/* <!-- Display div: with information about every game (if any) --> */}
-                    <div className="home-container">
-                        <div className="game">
-                            <img src='/images/witcher.png' alt="Elden Ring" />
-                                <div className="details-overlay">
-                                    <p className="name">The Witcher 3</p>
-                                    <p className="genre">Open World</p>
-                                    <button className="details-button">Details</button>
-                                </div>
-                        </div>
-                        <div className="game">
-                            <img src='/images/elden ring.png' alt="Elden Ring" />
-                                <div className="details-overlay">
-                                    <p className="name">Elden Ring</p>
-                                    <p className="genre">Action RPG</p>
-                                    <button className="details-button">Details</button>
-                                </div>
-                        </div>
-                        <div className="game">
-                            <img src='/images/minecraft.png' alt="Minecraft" />
-                                <div className="details-overlay">
-                                    <p className="name">Minecraft</p>
-                                    <p className="genre">Sandbox</p>
-                                    <button className="details-button">Details</button>
-                                </div>
-                                {/* <!-- Display paragraph: If there is no games  --> */}
-                                {/* <!-- <p className="no-articles">No games yet</p> --> */}
-                        </div>
-                    </div>
+                        {lastGames.length > 0 ? <div className="home-container">{lastGames.map((set) => <GameCard key={set[1].title} id={set[0]} game={set[1]}/>)}</div> :
+                        <p className="no-articles">No games yet</p>
+                        }
                 </div>
             </div>
 
