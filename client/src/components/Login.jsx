@@ -1,6 +1,6 @@
 export function Login() {
     return(
-        // <!-- Login Page ( Only htmlFor Guest users ) -->
+        
     <section id="login-page">
 
         <form id="login">

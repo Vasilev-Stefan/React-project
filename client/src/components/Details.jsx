@@ -11,7 +11,7 @@ export function Details() {
         .then(response => response.json())
         .then(result => setGame(result))
         .catch(error => alert(error))
-    }, [])
+    }, [id])
     return (
         <section id="game-details">
             <h1>Game Details</h1>
