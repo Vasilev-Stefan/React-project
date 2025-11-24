@@ -126,3 +126,11 @@ label[for="terms"]>input {
     border-radius: 10px;
     padding: 5px;
 }
+
+.container p {
+    color: red;
+    font-size: 18px;
+    margin: 5px auto;   /* auto left/right → centers block elements */
+    text-align: center; /* centers text inside the <p> */
+    width: 100%;        /* optional but helps with centering */
+}
