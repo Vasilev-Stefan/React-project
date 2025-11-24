@@ -38,5 +38,27 @@
         "imageUrl": "/public/images/cyberpunk.png",
         "summary": "An open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
         "_createdOn": 1607558400000
+    },
+    "d4637c90-094b-4c02-843b-ef597d13afdf": {
+        "title": "Escape from Tarkov",
+        "genre": "Action",
+        "players": 500000,
+        "date": "2025-11-14",
+        "imageUrl": "https://mmostats.com/images/games/escape-from-tarkov/cover-escape-from-tarkov.jpg",
+        "summary": "Escape from Tarkov is the original extraction FPS where every raid is a gamble with death. Prep your raid, bleed, endure and fight through ruthless PMC players and Scavs, gain tactical advantage and cling to your loot — only extraction decides if you live or lose it all.",
+        "_ownerId": "No owner yet",
+        "_createdOn": 1764026788146,
+        "_id": "d4637c90-094b-4c02-843b-ef597d13afdf"
+    },
+    "2ac1c431-b15b-42d1-993e-aea53bffecae": {
+        "title": "League of Legends",
+        "genre": "MOBA",
+        "players": 1000000,
+        "date": "2009-10-09",
+        "imageUrl": "https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/leagueoflegends.png",
+        "summary": "League of Legends, наричана накратко LoL, е безплатна мултиплеър 3D фентъзи онлайн игра, в която играчите избират един от безплатните или закупените от тях с точки, които се печелят след победа, герои и се съревновават помежду си.",
+        "_ownerId": "No owner yet",
+        "_createdOn": 1764027198591,
+        "_id": "2ac1c431-b15b-42d1-993e-aea53bffecae"
     }
 }

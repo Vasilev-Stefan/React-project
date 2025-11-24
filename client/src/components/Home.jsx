@@ -8,7 +8,7 @@ export function Home() {
     useEffect(() => {
         fetch('http://localhost:3030/jsonstore/games?sortBy=_createdOn%20desc')
         .then(response => response.json())
-        .then(result => setLastGames(Object.entries(result).slice(0, 3)))
+        .then(result => setLastGames(Object.entries(result).sort((a, b) => b[1]._createdOn - a[1]._createdOn).slice(0, 3)))
         .catch(error => alert(error.message))
     },[])
     return (
