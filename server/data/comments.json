@@ -1,0 +1,38 @@
+{
+    "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d": {
+        "_id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+        "author": "No author yet",
+        "gameId": "5c7d8f0e-3a9b-4c2d-9e1f-6a4b3c8d2e7a",
+        "content": "Amazing world-building and storytelling!"
+    },
+    "d4c3b2a1-f6e5-8b7a-0d9c-4b3a2f1e6d5c": {
+        "_id": "d4c3b2a1-f6e5-8b7a-0d9c-4b3a2f1e6d5c",
+        "author": "No author yet",
+        "gameId": "7b9a2c4f-1d5e-4b6c-8a3d-2f1e0g3h4i5j",
+        "content": "Incredible combat and open world exploration."
+    },
+    "11223344-5566-7788-99aa-bbccddeeff00": {
+        "_id": "11223344-5566-7788-99aa-bbccddeeff00",
+        "author": "No author yet",
+        "gameId": "3d4e5f6g-7h8i-9j0k-1l2m-3n4o5p6q7r8s",
+        "content": "A timeless classic with limitless creativity!"
+    },
+    "00ffeedd-ccbb-a099-8877-665544332211": {
+        "_id": "00ffeedd-ccbb-a099-8877-665544332211",
+        "author": "No author yet",
+        "gameId": "9f8e7d6c-5b4a-3c2d-1e0f-9g8h7i6j5k4l",
+        "content": "Great story and atmosphere, especially after updates."
+    },
+    "abc12345-def6-7890-abcd-ef1234567890": {
+        "_id": "abc12345-def6-7890-abcd-ef1234567890",
+        "author": "No author yet",
+        "gameId": "d4637c90-094b-4c02-843b-ef597d13afdf",
+        "content": "Intense and realistic extraction shooter gameplay."
+    },
+    "fedcba98-7654-3210-fedc-ba9876543210": {
+        "_id": "fedcba98-7654-3210-fedc-ba9876543210",
+        "author": "No author yet",
+        "gameId": "2ac1c431-b15b-42d1-993e-aea53bffecae",
+        "content": "Fast-paced competitive experience with great champions."
+    }
+}
