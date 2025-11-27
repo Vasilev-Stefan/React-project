@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router"
+import { useParams } from "react-router"
+import { GameButtons } from "./GameButtons"
+import { CommentsSection } from "./CommentsSection"
+import { AddComment } from "./AddComment"
 
 export function Details() {
     const {id} = useParams()
@@ -48,34 +51,13 @@ export function Details() {
 
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-                <div className="buttons">
-                    <Link to={`/games/edit/${id}`} className="button">Edit</Link>
-                    <Link to={`/games/delete/${id}`} className="button">Delete</Link>
-                </div>
+                <GameButtons />
 
-                <div className="details-comments">
-                    <h2>Comments:</h2>
-                    <ul>
-                        <li className="comment">
-                            <p>Content: A masterpiece of world design, though the boss fights are brutal.</p>
-                        </li>
-                        <li className="comment">
-                            <p>Content: Truly feels like a next-gen evolution of the Souls formula!</p>
-                        </li>
-                    </ul>
-                    {/* <!-- Display paragraph: If there are no games in the database --> */}
-                    {/* <!-- <p className="no-comment">No comments.</p> --> */}
-                </div>
+                <CommentsSection />
 
             </div>
             {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
-            <article className="create-comment">
-                <label>Add new comment:</label>
-                <form className="form">
-                    <textarea name="comment" placeholder="Comment......"></textarea>
-                    <input className="btn submit" type="submit" value="Add Comment" />
-                </form>
-            </article>
+            <AddComment />
         </section>
     )
 }
