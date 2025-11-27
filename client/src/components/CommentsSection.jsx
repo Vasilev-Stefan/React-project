@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
-export function CommentsSection() {
+export function CommentsSection({
+    refresh
+}) {
     const { id } = useParams()
 
     const [comments, setComments] = useState([])
@@ -13,7 +15,7 @@ export function CommentsSection() {
         .then(result => setComments(Object.values(result).filter(c => c.gameId === id)))
         .catch(error => alert(error.message))
 
-    }, [setComments])
+    }, [setComments, refresh])
 
     return (
         <div className="details-comments">
