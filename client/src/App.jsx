@@ -24,6 +24,7 @@ function App() {
                 <Route path='/games'>
                     <Route path='add' element={<Create />} />
                     <Route path='details/:id' element={<Details />} />
+                    <Route path='edit/:id' element={<Edit />} />
                 </Route>
 
                 <Route path='/users'>
@@ -34,7 +35,6 @@ function App() {
         </main>
 
 
-        {/* <Edit /> */}
         <Footer />
         </>
     )

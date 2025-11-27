@@ -10,7 +10,7 @@ export function Home() {
         .then(response => response.json())
         .then(result => setLastGames(Object.entries(result).sort((a, b) => b[1]._createdOn - a[1]._createdOn).slice(0, 3)))
         .catch(error => alert(error.message))
-    },[])
+    },[setLastGames])
     return (
             // <!--Home Page-->
         <section id="welcome-world">
