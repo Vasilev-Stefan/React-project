@@ -1,5 +1,6 @@
 import { Catalog } from './components/Catalog'
 import { Create } from './components/Create'
+import { Delete } from './components/Delete'
 import { Details } from './components/Details'
 import { Edit } from './components/Edit'
 import { Footer } from './components/Footer'
@@ -25,6 +26,7 @@ function App() {
                     <Route path='add' element={<Create />} />
                     <Route path='details/:id' element={<Details />} />
                     <Route path='edit/:id' element={<Edit />} />
+                    <Route path='delete/:id' element={<Delete />} />
                 </Route>
 
                 <Route path='/users'>
