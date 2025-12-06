@@ -26,12 +26,20 @@ export function useForm(initialValues, onSumbitCallback, validate) {
     onSumbitCallback(data)
   }
 
+  const inputFiller = (name) => ({
+    name,
+    value: data[name],
+    onChange: onChangeHandler
+
+  })
+
   return {
     data,
     errors,
     onChangeHandler,
     onSubmitHandler,
-    setErrors
+    setErrors,
+    inputFiller
   }
 }
 

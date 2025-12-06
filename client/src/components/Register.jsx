@@ -1,85 +1,81 @@
-import { useState } from "react"
-import { useNavigate } from "react-router"
+import { useNavigate } from "react-router";
+import { useForm } from "../hooks/useForm";
+import { useUser } from "../hooks/useUser";
 
 const initialData = {
-    email: '',
-    password: '',
-    rePass: '',
-}
+  email: "",
+  password: "",
+  rePass: "",
+};
 
 export function Register() {
-    const [data, setData] = useState(initialData)
-    const [errors, setErrors] = useState({})
+  const navigate = useNavigate();
+  const { login } = useUser();
 
-    const navigate = useNavigate()
+  const validate = (data) => {
+    const errors = {};
 
-
-    const onChangeHandler = (e) => {
-        const name = e.target.name
-        const value = e.target.value
-
-        setData(state => ({
-            ...state,
-            [name]: value
-        }))
-
+    if (!data.email) {
+      errors.email = "Email is required!";
+    }
+    if (!data.password) {
+      errors.password = "Password is required!";
+    }
+    if (data.password && data.password !== data.rePass) {
+      errors.rePass = "Passwords do not match!";
     }
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault()
+    return errors;
+  };
 
-        const newErrors = {}
+  const registerUser = (data) => {
+    login(data) //TODO
+    navigate("/"), validate;
+  };
 
+  const { data, errors, onSubmitHandler, inputFiller } = useForm(
+    initialData,
+    registerUser
+  );
 
-        //Validate Email
-        if (data.email.length == 0) {
-            newErrors.email = 'Email is required!'
-        }
+  return (
+    // <!-- Register Page ( Only for Guest users ) -->
+    <section id="register-page" className="content auth">
+      <form id="register" action={onSubmitHandler}>
+        <div className="container">
+          <div className="brand-logo"></div>
+          <h1>Register</h1>
 
-        if (data.password.length == 0) {
-            newErrors.password = 'Password is required!'
-        }
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            {...inputFiller("email")}
+            placeholder="Your Email"
+          />
+          {errors.email && <p>{errors.email}</p>}
 
-        if (data.password && data.password !== data.rePass) {
-            newErrors.rePass = 'Passwords does not match!'
-        }
+          <label htmlFor="pass">Password:</label>
+          <input
+            type="password"
+            {...inputFiller("password")}
+            id="register-password"
+            placeholder="Password"
+          />
+          {errors.password && <p>{errors.password}</p>}
 
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors)
-            return
-        }
+          <label htmlFor="con-pass">Confirm Password:</label>
+          <input
+            type="password"
+            {...inputFiller("rePass")}
+            id="confirm-password"
+            placeholder="Repeat Password"
+          />
+          {errors.rePass && <p>{errors.rePass}</p>}
 
-        setErrors({})
-        console.log('Succesfully registered')
-        navigate('/')
-    }
-
-
-    return (
-        // <!-- Register Page ( Only for Guest users ) -->
-        <section id="register-page" className="content auth">
-            <form id="register" onSubmit={onSubmitHandler} >
-                <div className="container">
-                    <div className="brand-logo"></div>
-                    <h1>Register</h1>
-
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" value={data.email} onChange={onChangeHandler} placeholder="Your Email" />
-                    {errors.email && <p>{errors.email}</p>}
-
-                    <label htmlFor="pass">Password:</label>
-                    <input type="password" name="password" value={data.password} onChange={onChangeHandler} id="register-password" placeholder="Password" />
-                    {errors.password && <p>{errors.password}</p>}
-
-                    <label htmlFor="con-pass">Confirm Password:</label>
-                    <input type="password" name="rePass" value={data.rePass} onChange={onChangeHandler} id="confirm-password" placeholder="Repeat Password" />
-                    {errors.rePass && <p>{errors.rePass}</p>}
-
-                    <input className="btn submit" type="submit" value="Register" />
-
-
-                </div>
-            </form>
-        </section>
-    )
+          <input className="btn submit" type="submit" value="Register" />
+        </div>
+      </form>
+    </section>
+  );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UserContext from "../contexts/userContext";
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -7,8 +8,8 @@ export function UserProvider({ children }) {
   const logout = () => setUser(null);
 
   return (
-    <UserProvider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout }}>
         {children}
-    </UserProvider>
+    </UserContext.Provider>
   );
 }
