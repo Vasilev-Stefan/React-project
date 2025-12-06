@@ -1,45 +1,43 @@
-import { Catalog } from './components/Catalog'
-import { Create } from './components/Create'
-import { Delete } from './components/Delete'
-import { Details } from './components/Details'
-import { Edit } from './components/Edit'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { Home } from './components/Home'
-import { Login } from './components/Login'
-import { Register } from './components/Register'
-import { Routes, Route } from 'react-router'
+import { Catalog } from "./components/Catalog";
+import { Create } from "./components/Create";
+import { Delete } from "./components/Delete";
+import { Details } from "./components/Details";
+import { Edit } from "./components/Edit";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { Home } from "./components/Home";
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
+import { Routes, Route } from "react-router";
+import { UserProvider } from "./components/UserProvider";
 
 function App() {
+  return (
+    <UserProvider>
+      <Header />
 
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog" element={<Catalog />} />
 
-    return (
-        <>
-        <Header />
+          <Route path="/games">
+            <Route path="add" element={<Create />} />
+            <Route path="details/:id" element={<Details />} />
+            <Route path="edit/:id" element={<Edit />} />
+            <Route path="delete/:id" element={<Delete />} />
+          </Route>
 
-        <main>
-            <Routes>
-                <Route path='/' element={<Home />}/>
-                <Route path='/catalog' element={<Catalog />}/>
+          <Route path="/users">
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+        </Routes>
+      </main>
 
-                <Route path='/games'>
-                    <Route path='add' element={<Create />} />
-                    <Route path='details/:id' element={<Details />} />
-                    <Route path='edit/:id' element={<Edit />} />
-                    <Route path='delete/:id' element={<Delete />} />
-                </Route>
-
-                <Route path='/users'>
-                    <Route path='login' element={<Login />}/>
-                    <Route path='register' element={<Register />}/>
-                </Route>
-            </Routes>
-        </main>
-
-
-        <Footer />
-        </>
-    )
+      <Footer />
+    </UserProvider>
+  );
 }
 
-export default App
+export default App;
