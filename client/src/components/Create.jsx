@@ -46,6 +46,7 @@ export function Create() {
     };
     
     const createGame = async (data) => {
+        data.players = Number(data.players)
         try {
             await request("data/games", "POST", data);
             navigate('/')
