@@ -1,41 +1,54 @@
-import { useParams } from "react-router"
+import { useParams } from "react-router";
+import { useNavigate } from "react-router";
+import { useFetch } from "../hooks/useFetch";
+import { useForm } from "../hooks/useForm";
 
-export function AddComment({
-    refresh
-}) {
-    const { id } = useParams()
 
-    
 
-    const submitHandler = async (formData) => {
-        const comment = formData.get('comment')
-        const record = {
-            "author": "No author yet",
-            "gameId": id,
-            "content": comment
-        }
+export function AddComment() {
+  const { id: gameId } = useParams();
+  const navigate = useNavigate();
+  const { request } = useFetch()
 
-        try {
-            await fetch(`http://localhost:3030/jsonstore/comments`, {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(record)
-            })
+  const initialData = {
+    gameId,
+    comment: "",
+  };
 
-            refresh()
-        } catch (error) {
-            alert(error.message)
-        }
+  const validate = (data) => {
+    const errors = {}
+
+    if(!data.comment){
+        errors.comment = 'Text is required!'
     }
-    return (
-        <article className="create-comment">
-            <label>Add new comment:</label>
-            <form className="form" action={submitHandler}>
-                <textarea name="comment" placeholder="Comment......"></textarea>
-                <input className="btn submit" type="submit" value="Add Comment" />
-            </form>
-        </article>
-    )
+
+    return errors
+  }
+
+  const submitComment = async (data) => {
+    try {
+        await request('data/comments', 'POST', data)
+        console.log('comment adde')
+        navigate(`/games/details/${gameId}`)
+    } catch (error) {
+        alert(error.message)
+    }
+  }
+
+  const { errors, onSubmitHandler, inputFiller} = useForm(
+    initialData,
+    submitComment,
+    validate
+  )
+
+  return (
+    <article className="create-comment">
+      <label>Add new comment:</label>
+      <form className="form" action={onSubmitHandler}>
+        <textarea {...inputFiller('comment')} placeholder="Comment......"></textarea>
+        {errors.comment && <p>{errors.comment}</p>}
+        <input className="btn submit" type="submit" value="Add Comment" />
+      </form>
+    </article>
+  );
 }
