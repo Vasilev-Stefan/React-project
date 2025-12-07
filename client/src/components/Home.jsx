@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react"
 import { GameCard } from "./GameCard"
+import { useFetch } from "../hooks/useFetch"
 
 
 export function Home() {
-    const [lastGames, setLastGames] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:3030/jsonstore/games?sortBy=_createdOn%20desc')
-        .then(response => response.json())
-        .then(result => setLastGames(Object.entries(result).sort((a, b) => b[1]._createdOn - a[1]._createdOn).slice(0, 3)))
-        .catch(error => alert(error.message))
-    },[setLastGames])
+    const {data: games} = useFetch('data/games?sortBy=_createdOn%20desc&pageSize=3')
     return (
             // <!--Home Page-->
         <section id="welcome-world">
@@ -24,7 +17,7 @@ export function Home() {
             <div id="home-page">
                 <h1>Latest Games</h1>
                 <div id="latest-wrap">
-                        {lastGames.length > 0 ? <div className="home-container">{lastGames.map((set) => <GameCard key={set[1].title} id={set[0]} game={set[1]}/>)}</div> :
+                        {games?.length > 0 ? <div className="home-container">{games.map((game) => <GameCard key={game._id} id={game._id} game={game}/>)}</div> :
                         <p className="no-articles">No games yet</p>
                         }
                 </div>

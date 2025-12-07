@@ -1374,7 +1374,17 @@
             "imageUrl": "/images/cyberpunk.png",
             "summary": "An open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
             "_createdOn": 1607558400000
-            }
+        },
+        "64080665-51f7-445e-9815-25793e3ae19e": {
+            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+            "title": "League of Legends",
+            "genre": "MOBA",
+            "players": "122222222",
+            "date": "2025-12-04",
+            "imageUrl": "https://cdn.europosters.eu/image/350/posters/league-of-legends-keyart-i272858.jpg",
+            "summary": "League of Legends, наричана накратко LoL, е безплатна мултиплеър 3D фентъзи онлайн игра, в която играчите избират един от безплатните или закупените от тях с точки, които се печелят след победа, герои и се съревновават помежду си.",
+            "_createdOn": 1765107450905,
+            "_id": "64080665-51f7-445e-9815-25793e3ae19e"}
         },
         comments: {
         
