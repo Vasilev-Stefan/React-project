@@ -1,28 +1,16 @@
-import { useEffect, useState } from "react"
 import { useParams } from "react-router"
+import { useFetch } from "../hooks/useFetch"
 
-export function CommentsSection({
-    refresh
-}) {
-    const { id } = useParams()
-
-    const [comments, setComments] = useState([])
-
-    useEffect(() => {
-        let allComments = {}
-        fetch(`http://localhost:3030/jsonstore/comments`)
-        .then(response => response.json())
-        .then(result => setComments(Object.values(result).filter(c => c.gameId === id)))
-        .catch(error => alert(error.message))
-
-    }, [setComments, refresh])
+export function CommentsSection({refreshKey}) {
+    const { id: gameId } = useParams()
+    const {data: comments} = useFetch(`data/comments?where=gameId%3D%22${gameId}%22`, [refreshKey])
 
     return (
         <div className="details-comments">
             <h2>Comments:</h2>
-            {comments.length > 0 ?
+            {comments?.length > 0 ?
             <ul>
-                {comments.map(c => <li className="comment" key={c._id}><p>Content: {c.content}</p></li>)}
+                {comments.map(comment => <li className="comment" key={comment._id}><p>Content: {comment.comment}</p></li>)}
             </ul> 
             :
             <p className="no-comment">No comments.</p>

@@ -1,20 +1,22 @@
-import { useState } from "react"
 import { useParams } from "react-router"
 import { GameButtons } from "./GameButtons"
 import { CommentsSection } from "./CommentsSection"
 import { AddComment } from "./AddComment"
 import { useFetch } from "../hooks/useFetch"
 import { useUser } from "../hooks/useUser"
+import { useState } from "react"
 
 export function Details() {
     const {id: gameId} = useParams()
     const { data: game } = useFetch(`data/games/${gameId}`)
     const { user, isAuthenticated } = useUser()
-    const [forceRefresh, setForceRefresh] = useState(false)
     let isOwner = false
-    const refresh = () => {
-        setForceRefresh(state => !state)
-    }
+
+    const [refreshKey, setRefreshKey] = useState(0)
+
+    function refreshComments() {
+    setRefreshKey(prev => prev + 1)
+  }
 
     if(user && game){
         isOwner = game._ownerId === user._id
@@ -62,11 +64,11 @@ export function Details() {
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                 {isOwner && <GameButtons />}
 
-                <CommentsSection refresh={refresh} />
+                <CommentsSection refreshKey={refreshKey} />
 
             </div>
             {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
-            {isAuthenticated && !isOwner && <AddComment refresh={refresh}/>}
+            {isAuthenticated && !isOwner && <AddComment refresh={refreshComments} />}
         </section>
     )
 }

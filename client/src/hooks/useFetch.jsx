@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useUser } from "./useUser";
 
-export function useFetch(url) {
+export function useFetch(url, deps = []) {
   const [data, setData] = useState(null);
   const { user, isAuthenticated } = useUser();
 
@@ -50,7 +50,11 @@ export function useFetch(url) {
         if (isActive) setData(result)
     })
     .catch((error) => alert(error));
-  }, [url]);
+
+    return () => {
+      isActive = false
+    }
+  }, [url, ...deps]);
 
 
   return {

@@ -1,13 +1,11 @@
 import { useParams } from "react-router";
-import { useNavigate } from "react-router";
 import { useFetch } from "../hooks/useFetch";
 import { useForm } from "../hooks/useForm";
 
 
 
-export function AddComment() {
+export function AddComment({refresh}) {
   const { id: gameId } = useParams();
-  const navigate = useNavigate();
   const { request } = useFetch()
 
   const initialData = {
@@ -28,14 +26,14 @@ export function AddComment() {
   const submitComment = async (data) => {
     try {
         await request('data/comments', 'POST', data)
-        console.log('comment adde')
-        navigate(`/games/details/${gameId}`)
+        setData({ gameId, comment: "" })
+        refresh()
     } catch (error) {
         alert(error.message)
     }
   }
 
-  const { errors, onSubmitHandler, inputFiller} = useForm(
+  const { errors, onSubmitHandler, inputFiller, setData} = useForm(
     initialData,
     submitComment,
     validate
