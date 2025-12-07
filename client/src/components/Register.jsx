@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { useForm } from "../hooks/useForm";
 import { useUser } from "../hooks/useUser";
+import { useFetch } from "../hooks/useFetch";
 
 const initialData = {
   email: "",
@@ -11,6 +12,7 @@ const initialData = {
 export function Register() {
   const navigate = useNavigate();
   const { login } = useUser();
+  const { request } = useFetch();
 
   const validate = (data) => {
     const errors = {};
@@ -28,14 +30,21 @@ export function Register() {
     return errors;
   };
 
-  const registerUser = (data) => {
-    login(data) //TODO
-    navigate("/"), validate;
+  const registerUser = async (data) => {
+    try {
+        const result = await request('users/register', 'POST', data)
+        login(result);
+        navigate("/")
+        
+    } catch (error) {
+        alert(error.message)
+    }
   };
 
   const { data, errors, onSubmitHandler, inputFiller } = useForm(
     initialData,
-    registerUser
+    registerUser,
+    validate
   );
 
   return (
