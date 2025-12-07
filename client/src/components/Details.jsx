@@ -11,12 +11,18 @@ export function Details() {
     const { data: game } = useFetch(`data/games/${gameId}`)
     const { user, isAuthenticated } = useUser()
     const [forceRefresh, setForceRefresh] = useState(false)
-
+    let isOwner = false
     const refresh = () => {
         setForceRefresh(state => !state)
     }
 
-    console.log(game)
+    if(user && game){
+        isOwner = game._ownerId === user._id
+    }
+    console.log('Game owner: ' + game?._ownerId)
+    console.log('Current user: ' + user?._id)
+    console.log(isAuthenticated)
+
 
     return (
         <section id="game-details">
@@ -54,13 +60,13 @@ export function Details() {
 
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-                {isAuthenticated && user?._id === game?._ownerId && <GameButtons />}
+                {isOwner && <GameButtons />}
 
                 <CommentsSection refresh={refresh} />
 
             </div>
             {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
-            <AddComment refresh={refresh}/>
+            {isAuthenticated && !isOwner && <AddComment refresh={refresh}/>}
         </section>
     )
 }
