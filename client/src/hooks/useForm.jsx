@@ -35,6 +35,7 @@ export function useForm(initialValues, onSumbitCallback, validate) {
 
   return {
     data,
+    setData,
     errors,
     onChangeHandler,
     onSubmitHandler,
