@@ -13,7 +13,7 @@ export function useForm(initialValues, onSumbitCallback, validate) {
     }))
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = () => {
 
     const validationErrors = validate ? validate(data) : {}
 

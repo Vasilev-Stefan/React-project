@@ -41,7 +41,7 @@ export function Register() {
     }
   };
 
-  const { data, errors, onSubmitHandler, inputFiller } = useForm(
+  const { errors, onSubmitHandler, inputFiller } = useForm(
     initialData,
     registerUser,
     validate

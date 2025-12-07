@@ -1,8 +1,9 @@
 import { useState } from "react"
+import { useUser } from "./useUser"
 
 export function useFetch() {
     const [data, setData] = useState(null)
-    // const {user} = useUser()
+    const {user, isAuthenticated} = useUser()
 
     const request = async (path, method = 'GET', bodyData = null) => {
         const options = {
@@ -15,12 +16,9 @@ export function useFetch() {
             options.headers['Content-Type'] = 'application/json'
         }
 
-        // if(user) {
-        //     options.headers = {
-        //         ...options.headers,
-        //         'X-Authorization': user.token
-        //     }
-        // }
+        if(isAuthenticated) {
+            options.headers['X-Authorization'] = user.accessToken;
+        }
 
         try {
             const response = await fetch(`http://localhost:3030/${path}`, options)
@@ -29,6 +27,9 @@ export function useFetch() {
                 throw new Error(`Error: ${response.status}`)
             }
 
+            if(response.status === 204){
+                return response
+            }
             const result = await response.json()
             setData(result)
             return result

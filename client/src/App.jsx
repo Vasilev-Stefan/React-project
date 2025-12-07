@@ -10,6 +10,7 @@ import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Routes, Route } from "react-router";
 import { UserProvider } from "./components/UserProvider";
+import { Logout } from "./components/Logout";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/users">
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="logout" element={<Logout />} />
           </Route>
         </Routes>
       </main>
